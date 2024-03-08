@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../interfaces/blog';
@@ -11,6 +11,7 @@ import { Blog } from '../../interfaces/blog';
 export class CrearBlogComponent {
 public fb=inject(FormBuilder)
 crearBlog!:FormGroup
+@Output() crear:EventEmitter<any>=new EventEmitter()
 constructor(private service:BlogService){
   this.crearBlog=this.initForm()
 }
@@ -29,6 +30,7 @@ initForm():FormGroup{
 onSubmit() {
 const blog:Blog=this.crearBlog.value
 this.service.crearBlog(blog)
+this.crear.emit("list")
 }
 
 }

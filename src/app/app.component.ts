@@ -9,10 +9,7 @@ import { BlogService } from './services/blog.service';
 })
 export class AppComponent implements OnInit {
   public blogs:Blog[]=[]
-  showComponent=false
-  showUpdate=false
-  showVisualizar=false
-  showList=true
+  showComponent:string="list"
   public blog!:Blog
 public blogData!: Blog;
 public blogd!: Blog;
@@ -21,39 +18,36 @@ public blogd!: Blog;
   constructor(private blogservice:BlogService){}
   ngOnInit(): void {
     this.blogs=this.blogservice.blog
-    console.log(this.blogs);
     
   }
   crear(event:any){
-    console.log(event);
     
-    this.showComponent=event
-    this.showUpdate=false
+    this.showComponent="create"
 
     }
   actualizar(blog:Blog){
-    console.log(blog)
-    console.log('actualizar');
+    console.log('hola desde actualizar list')
+    this.showComponent="list"
+
     
-    this.showComponent=true
   }
   update(blog:Blog){
+console.log('hola desde actualizar');
 
     this.blog=blog   
-    this.showUpdate=true   
-    this.showComponent=false 
-    console.log('hola desde update');
+    this.showComponent="update"
+    
     
   }
   notification(blog:Blog){
    this.blogd=blog
-   console.log(this.blogd);
-   
-   this.showVisualizar=true
-   this.showUpdate=false
-   this.showComponent=false
-   this.showList=false
+   this.showComponent="views"
+
     
+  }
+
+  crearEntrada(select:string){
+this.showComponent=select
   }
 
 }

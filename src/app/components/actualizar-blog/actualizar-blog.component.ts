@@ -41,9 +41,9 @@ export class ActualizarBlogComponent implements OnChanges {
     console.log(blogcreate,this.blog.id);
     
     this.service.actualizarBlog(blogcreate, this.blog.id)
+    this.update.emit()
+
   }
 
-  actualizar() {
-    this.update.emit()
-  }
+
 }

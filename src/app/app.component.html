@@ -1,13 +1,14 @@
 <app-navbar (ocultarComponente)="crear($event)"></app-navbar>
-<ng-container>
-  <app-list-blog *ngIf="showList" (update)="update($event)" (notification)="notification($event)"></app-list-blog>
-</ng-container>
-<ng-container *ngIf="showComponent">
-  <app-crear-blog />
-</ng-container>
-<ng-container *ngIf="showUpdate">
-  <app-actualizar-blog  (update)="actualizar($event)" [blog]="blog"></app-actualizar-blog>
-</ng-container>
-<ng-container *ngIf="showVisualizar">
-<app-visualizar [blogData]="blogd"></app-visualizar>
-</ng-container>
+<div [ngSwitch]="showComponent">
+  <ng-container *ngSwitchCase="'list'">
+    <app-list-blog  (update)="update($event)" (notification)="notification($event)"></app-list-blog>
+  </ng-container>
+  <ng-container *ngSwitchCase="'create'">  <app-crear-blog (crear)="crearEntrada($event)" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'update'">
+    <app-actualizar-blog  (update)="actualizar($event)" [blog]="blog"></app-actualizar-blog>
+  </ng-container>
+  <ng-container *ngSwitchCase="'views'">
+  <app-visualizar [blogData]="blogd"></app-visualizar>
+  </ng-container>
+</div>
