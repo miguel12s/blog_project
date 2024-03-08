@@ -1,0 +1,3 @@
+<div class="row"   >
+    <app-blog *ngFor="let blog of blogs" (notification)="notificationf($event)" (updateBlog)="updateBlog($event)" [blog]="blog" class="col-12" ></app-blog>
+</div>

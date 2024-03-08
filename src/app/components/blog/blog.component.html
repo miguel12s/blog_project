@@ -1,0 +1,12 @@
+
+<div class="card" style="width: 18rem; margin-top: 1.125rem;" (click)="onClick(blog)">
+        <div class="card-body">
+      <h5 class="card-title">{{blog.title}}</h5>
+      <p class="card-text">{{blog.description}}</p>
+      <p class="card-text">{{blog.author}}</p>
+      <div class="card-footer">
+        <p class="card-text"> {{blog.date| date:'dd/MM/yyyy'}}</p>
+        <button class="btn btn-primary" (click)="update(blog)">Actualizar</button>
+      </div>
+    </div>
+  </div>
