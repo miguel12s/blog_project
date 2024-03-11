@@ -38,8 +38,10 @@ export class ActualizarBlogComponent implements OnChanges {
   }
   onSubmit() {
     const blogcreate: Blog = this.crearBlog.value
-    console.log(blogcreate,this.blog.id);
-    
+    const dateFormat=new Date(blogcreate.date)
+blogcreate.date=dateFormat
+console.log(blogcreate);
+
     this.service.actualizarBlog(blogcreate, this.blog.id)
     this.update.emit()
 

@@ -1,3 +1,5 @@
-<div class="row"   >
+<div class="container-fluid px-5">
+<div class="row mb-4">
     <app-blog *ngFor="let blog of blogs" (notification)="notificationf($event)" (updateBlog)="updateBlog($event)" [blog]="blog" class="col-12" ></app-blog>
+</div>
 </div>

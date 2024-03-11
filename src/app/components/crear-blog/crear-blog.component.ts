@@ -29,6 +29,12 @@ initForm():FormGroup{
 }  
 onSubmit() {
 const blog:Blog=this.crearBlog.value
+const dateFormat=new Date(new Date(blog.date).toLocaleString("en-US", {timeZone: "America/Bogota"}))
+console.log(blog.date);
+
+console.log(dateFormat);
+
+blog.date=dateFormat
 this.service.crearBlog(blog)
 this.crear.emit("list")
 }

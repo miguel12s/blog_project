@@ -64,8 +64,8 @@ export class BlogService {
   //   }    
   // }
   actualizarBlog(blog:Blog,id:number|undefined){
-    console.log('id desde el servicio',id);
-    console.log(this.blogs);
+  
+    console.log(blog);
     
     const index= this.blogs.findIndex(blog=>
    

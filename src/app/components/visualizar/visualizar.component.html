@@ -1,12 +1,22 @@
-<div class="d-flex justify-content-center">
-<div class="card " style="width: 80%; margin-top: 1.125rem;" >
-    <div class="card-body">
-  <h5 class="card-title">{{blogData.title}}</h5>
-  <p class="card-text">{{blogData.description}}</p>
-  <p class="card-text">{{blogData.author}}</p>
-  <div class="card-footer">
-    <p class="card-text"> {{blogData.date| date:'dd/MM/yyyy'}}</p>
+<div class="position-relative">
+  <div class="card mt-4" >
+    <div class="container card-body">
+     
+      <h5 class="card-title">{{ blogData.title | titlecase }}</h5>
+      <p class="card-text mt-3 mb-3 text-secondary">{{ blogData.description }}</p>
+      <div class="d-flex">
+        <div class="w-100">
+          <p class="text-secondary">Author: {{ blogData.author }}</p>
+        </div>
+        <div class=" flex-grow-1">
+          <p class="text-secondary">{{ blogData.date | date : "dd/MM/yyyy" }}</p>
+        </div>
+      </div>
+    <div class="position-absolute opciones">
+     
+        
+  
+    </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
+  </div>

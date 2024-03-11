@@ -1,7 +1,7 @@
-<app-navbar (ocultarComponente)="crear($event)"></app-navbar>
-<div [ngSwitch]="showComponent">
-  <ng-container *ngSwitchCase="'list'">
-    <app-list-blog  (update)="update($event)" (notification)="notification($event)"></app-list-blog>
+<app-navbar (ocultarComponente)="crear($event)" ></app-navbar>
+<div [ngSwitch]="showComponent" class="bg-body-tertiary">
+  <ng-container *ngSwitchCase="'list'" >
+    <app-list-blog   (update)="update($event)" (notification)="notification($event)"></app-list-blog>
   </ng-container>
   <ng-container *ngSwitchCase="'create'">  <app-crear-blog (crear)="crearEntrada($event)" />
   </ng-container>

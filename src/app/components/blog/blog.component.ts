@@ -8,18 +8,25 @@ import { BlogService } from '../../services/blog.service';
   styleUrl: './blog.component.css'
 })
 export class BlogComponent {
-@Input() blog!:Blog
-@Output() updateBlog:EventEmitter<Blog>=new EventEmitter()
-@Output() notification:EventEmitter<Blog>=new EventEmitter()
+  @Input() blog!: Blog
+  @Output() updateBlog: EventEmitter<Blog> = new EventEmitter()
+  @Output() notification: EventEmitter<Blog> = new EventEmitter()
+  dateToday!:Date
 
-private service=inject(BlogService)
 
-update(blog:Blog){
-  this.updateBlog.emit(blog)
-  console.log('hola');
+  constructor(){
+    this.dateToday = new Date(new Date().toLocaleString("en-US", {timeZone: "America/Bogota"}));
+    console.log(this.dateToday);
+    
   
-}
-onClick(blog:Blog){
-this.notification.emit(blog)
-}
+  }
+
+  update(blog: Blog) {
+    this.updateBlog.emit(blog)
+    console.log('hola');
+
+  }
+  onClick(blog: Blog) {
+    this.notification.emit(blog)
+  }
 }
