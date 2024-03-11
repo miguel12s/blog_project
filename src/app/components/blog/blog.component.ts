@@ -11,19 +11,20 @@ export class BlogComponent {
   @Input() blog!: Blog
   @Output() updateBlog: EventEmitter<Blog> = new EventEmitter()
   @Output() notification: EventEmitter<Blog> = new EventEmitter()
-  dateToday!:Date
+  dateToday!:any
 
 
   constructor(){
-    this.dateToday = new Date(new Date().toLocaleString("en-US", {timeZone: "America/Bogota"}));
-    console.log(this.dateToday);
-    
+    const today =new Date()
+   today.setDate(today.getDate());
+
+    this.dateToday = today.toISOString().substring(0, 10);
+
   
   }
 
   update(blog: Blog) {
     this.updateBlog.emit(blog)
-    console.log('hola');
 
   }
   onClick(blog: Blog) {

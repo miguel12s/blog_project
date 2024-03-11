@@ -32,7 +32,8 @@ export class BlogService {
       title:'aprendiendo a programar',
       description:'quinto dia aprendiendo',
       author:'miguel',
-      date:new Date(2020, 5, 19, 25, 65)
+      date:new Date(2024, 5, 20, 1)
+
     }
   ]
   constructor() { }

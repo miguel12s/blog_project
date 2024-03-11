@@ -10,6 +10,7 @@ import { CrearBlogComponent } from './components/crear-blog/crear-blog.component
 import { ActualizarBlogComponent } from './components/actualizar-blog/actualizar-blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VisualizarComponent } from './components/visualizar/visualizar.component';
+import { FilterdatePipe } from './pipes/filterdate.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VisualizarComponent } from './components/visualizar/visualizar.componen
     BlogComponent,
     CrearBlogComponent,
     ActualizarBlogComponent,
-    VisualizarComponent
+    VisualizarComponent,
+    FilterdatePipe
   ],
   imports: [
     BrowserModule,
