@@ -4,7 +4,7 @@
             <a class="navbar-brand fw-bold">IUB-ANGULAR</a>
 <p class="text-secondary">Blog de entrada de IUB</p>
         </div>
-    
-        <button class="btn  text-white btn-primary px-2  " type="button"  (click)="crear()">NUEVA ENTRADA</button>
+        <app-button [class]="'btn text-white btn-primary px-2'" [value]="'NUEVA ENTRADA'" (crearEmmiter)="crear($event)"></app-button>
+        <!-- <button class="btn  text-white btn-primary px-2  " type="button"  (click)="crear()">NUEVA ENTRADA</button> -->
     </div>
   </nav>

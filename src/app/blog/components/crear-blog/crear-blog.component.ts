@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BlogService } from '../../services/blog.service';
-import { Blog } from '../../interfaces/blog';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BlogService } from '../../../core/services/blog.service';
+import { Blog } from '../../../core/interfaces/blog';
+
 
 @Component({
   selector: 'app-crear-blog',
@@ -19,14 +20,14 @@ constructor(private service:BlogService){
 initForm():FormGroup{
   return this.fb.group(
     {
-      title:['',Validators.required],
-      description:['',Validators.required],
-      author:['',Validators.required],
-      date:['',Validators.required],
+      title: new FormControl('',Validators.required),
+      description:new FormControl('',Validators.required),
+      author:new FormControl('',Validators.required),
+      date:new FormControl('',Validators.required),
 
     }
   )
-}  
+}   
 onSubmit() {
 const blog:Blog=this.crearBlog.value
 console.log(blog.date);

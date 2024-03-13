@@ -1,0 +1,21 @@
+<div class="position-relative" (click)="onClick(blog)" >
+  <div class="card mt-4">
+    <div class="container card-body">
+      <h5 class="card-title">{{ blog.title | titlecase }}</h5>
+      <p class="card-text mt-3 mb-3 text-secondary">{{ blog.description }}</p>
+      <div class="d-flex  ">
+        <div class="w-100 ">
+          <p class="text-secondary">Author: {{ blog.author }}</p>
+        </div>
+        <div class="flex-grow-1" style="width: 170px;">
+
+
+          <p class="text-secondary " style="font-size: 15px;" *ngIf="blog.date>dateToday">{{ blog.date | filterdate}}</p>
+        </div>
+      </div>
+      <div class="position-absolute opciones">
+        <app-icon-update [blog]="blog" (update)="update($event)" ></app-icon-update>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Blog } from '../../interfaces/blog';
+import { Blog } from '../../../core/interfaces/blog';
 
 @Component({
   selector: 'app-visualizar',
@@ -8,8 +8,4 @@ import { Blog } from '../../interfaces/blog';
 })
 export class VisualizarComponent {
   @Input() blogData!:Blog
-  constructor(){
-    console.log(this.blogData);
-    
-  }
 }

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +8,8 @@ import { BlogService } from '../../services/blog.service';
 export class NavbarComponent {
   @Output() ocultarComponente: EventEmitter<boolean> = new EventEmitter()
   public showComponent = false
-  // constructor(private service:BlogService){}
-  crear() {
-    console.log('entras a crear');
-    
-    this.ocultarComponente.emit(true)
+  crear(event:any) {    
+    this.ocultarComponente.emit(event)
 
 
 

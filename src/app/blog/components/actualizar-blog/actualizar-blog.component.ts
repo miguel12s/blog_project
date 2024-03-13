@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BlogService } from '../../services/blog.service';
-import { Blog } from '../../interfaces/blog';
+import { BlogService } from '../../../core/services/blog.service';
+import { Blog } from '../../../core/interfaces/blog';
 
 @Component({
   selector: 'app-actualizar-blog',

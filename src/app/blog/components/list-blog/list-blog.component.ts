@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Blog } from '../../interfaces/blog';
-import { BlogService } from '../../services/blog.service';
+import { BlogService } from '../../../core/services/blog.service';
+import { Blog } from '../../../core/interfaces/blog';
+
 
 @Component({
   selector: 'app-list-blog',
