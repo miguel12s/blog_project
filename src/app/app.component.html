@@ -1,16 +1,25 @@
-<app-navbar (ocultarComponente)="crear($event)" ></app-navbar>
+<app-navbar
+  (ocultarComponente)="crear($event)"
+  (wordSearch)="wordSearch($event)"
+></app-navbar>
 <div [ngSwitch]="showComponent" class="bg-body-tertiary">
-  <ng-container *ngSwitchCase="'list'" >
-    <app-list-blog   (update)="update($event)" (notification)="notification($event)"></app-list-blog>
+  <ng-container *ngSwitchCase="'list'">
+    <app-list-blog
+      (update)="update($event)"
+      [word]="word"
+      (notification)="notification($event)"
+    ></app-list-blog>
   </ng-container>
-  <ng-container *ngSwitchCase="'create'">  <app-crear-blog (crear)="crearEntrada($event)" />
+  <ng-container *ngSwitchCase="'create'">
+    <app-crear-blog (crear)="crearEntrada($event)" />
   </ng-container>
   <ng-container *ngSwitchCase="'update'">
-    <app-actualizar-blog  (update)="actualizar($event)" [blog]="blog"></app-actualizar-blog>
+    <app-actualizar-blog
+      (update)="actualizar($event)"
+      [blog]="blog"
+    ></app-actualizar-blog>
   </ng-container>
   <ng-container *ngSwitchCase="'views'">
-  <app-visualizar [blogData]="blogd"></app-visualizar>
+    <app-visualizar [blogData]="blogd"></app-visualizar>
   </ng-container>
 </div>
-
-

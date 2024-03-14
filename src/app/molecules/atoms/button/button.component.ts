@@ -10,7 +10,7 @@ export class ButtonComponent {
 @Input() value!:string
 @Input() class!:string
 @Output() crearEmmiter:EventEmitter<boolean>=new EventEmitter()
-
+@Input() disabled!:boolean
 crear(){
   this.crearEmmiter.emit(true)
 }

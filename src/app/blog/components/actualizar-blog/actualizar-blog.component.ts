@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../../core/services/blog.service';
 import { Blog } from '../../../core/interfaces/blog';
 
@@ -21,17 +21,17 @@ export class ActualizarBlogComponent implements OnChanges {
       title: this.blog.title,
       description: this.blog.description,
       author: this.blog.author,
-      date: this.blog.date
     })
   }
 
   initForm(): FormGroup {
     return this.fb.group(
       {
-        title: ['', Validators.required],
-        description: ['', Validators.required],
-        author: ['', Validators.required],
-        date: ['', Validators.required],
+        title: new FormControl('',Validators.required),
+        description:new FormControl('',Validators.required),
+        author:new FormControl('',Validators.required),
+        date:new FormControl('',Validators.required),
+  
 
       }
     )

@@ -14,12 +14,19 @@ export class AppComponent implements OnInit {
   public blog!:Blog
 public blogData!: Blog;
 public blogd!: Blog;
+word=""
 
 
   constructor(private blogservice:BlogService){}
   ngOnInit(): void {
+    
     this.blogs=this.blogservice.blog
     
+  }
+  wordSearch(word: string) {
+    console.log(word);
+    
+    this.word=word
   }
   crear(event:any){
     

@@ -9,6 +9,7 @@ import { FilterdatePipe } from './pipes/filterdate.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoleculesModule } from '../molecules/molecules.module';
 import { IconUpdateComponent } from './components/icon-update/icon-update.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { IconUpdateComponent } from './components/icon-update/icon-update.compon
     ActualizarBlogComponent,
     VisualizarComponent,
     FilterdatePipe,
-    IconUpdateComponent
+    IconUpdateComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,ReactiveFormsModule,MoleculesModule,FormsModule
