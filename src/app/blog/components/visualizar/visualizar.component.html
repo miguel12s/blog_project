@@ -1,18 +1,19 @@
-<div class="position-relative">
-  <div class="card mt-4" >
-    <div class="container card-body">
-     
-      <h5 class="card-title">{{ blogData.title | titlecase }}</h5>
-      <p class="card-text mt-3 mb-3 text-secondary">{{ blogData.description }}</p>
-      <div class="d-flex">
-        <div class="w-100">
-          <p class="text-secondary">Author: {{ blogData.author }}</p>
-        </div>
-        <div class=" flex-grow-1">
-          <p class="text-secondary">{{ blogData.date | date : "dd/MM/yyyy" }}</p>
-        </div>
-      </div>
 
+<div class="position-relative visualizar_container "  >
+  <div class="card mt-4">
+    <div class="container card-body">
+      <h5 class="card-title">{{ blogData.title | titlecase }}</h5>
+      <p class="card-text mt-5 mb-3 text-secondary">{{ blogData.description }}</p>
+    </div>
+    <div class="d-flex  ">
+      <div class="w-100 ">
+        <p class="text-secondary" style="margin-left: 1.25rem;">Author: {{ blogData.author }}</p>
+      </div>
+      <div class="flex-grow-1" style="width: 250px;">
+
+
+        <p class="text-secondary " style="margin-right: 1.25rem;" >{{ blogData.date | filterdate}}</p>
+      </div>
     </div>
   </div>
-  </div>
+</div>

@@ -24,7 +24,7 @@ export class FilterdatePipe implements PipeTransform {
   12: 'diciembre'
   };
   
-  transform(date: Date, ...args: unknown[]): string {
+  transform(date: string, ...args: unknown[]): string {
     console.log(date);
     const numbersOfTheDate=date.toString().split('-')
     console.log(numbersOfTheDate);

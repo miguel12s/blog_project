@@ -12,28 +12,28 @@ export class BlogService {
       title: 'aprendiendo a programar',
       description: 'segundo dia aprendiendo',
       author: 'miguel',
-      date: new Date(2020, 5, 19, 25, 65),
+      date: '2024-03-27',
     },
     {
       id: 2,
       title: 'aprendiendo a programar',
       description: 'tercer dia aprendiendo',
       author: 'miguel',
-      date: new Date(2020, 5, 19, 25, 65),
+      date: '2024-02-27',
     },
     {
       id: 3,
       title: 'aprendiendo a programar',
       description: 'cuarto dia aprendiendo',
       author: 'miguel',
-      date: new Date(2020, 5, 19, 25, 65),
+      date: '2024-01-27',
     },
     {
       id: 4,
       title: 'aprendiendo a programar',
       description: 'quinto dia aprendiendo',
       author: 'miguel',
-      date: new Date(2024, 5, 20, 1),
+      date: '2023-03-27',
     },
   ];
   constructor() {}
