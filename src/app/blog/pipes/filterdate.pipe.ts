@@ -29,10 +29,10 @@ export class FilterdatePipe implements PipeTransform {
     console.log(date);
     
     const numbersOfTheDate=date?.split('-') 
-   console.log(numbersOfTheDate?[0][0]:'');
-console.log(numbersOfTheDate?[0]:'',numbersOfTheDate?[1]:'',numbersOfTheDate?[2]:'');
 
-    const textDate= `${numbersOfTheDate?[2]:null} de ${this.getMonth(numbersOfTheDate?[1].toString():'')} de
+   console.log(numbersOfTheDate?[0]:'')
+
+    const textDate= `${numbersOfTheDate?[2]:''} de ${this.getMonth(numbersOfTheDate?[1].toString():'')} de
      ${numbersOfTheDate?[0]:''}`
      
     return textDate

@@ -9,15 +9,14 @@ import { BlogService } from '../../../core/services/blog.service';
   styleUrl: './visualizar.component.css'
 })
 export class VisualizarComponent {
-  @Input() blogData!:Blog
   private index!:number
   private router=inject(ActivatedRoute)
-  public blog?:Blog
+  public blogData?:Blog
   private sv=inject(BlogService)
   constructor(){
     this.index=this.router.snapshot.params['id']
-    this.blog=this.sv.getBlogForId(this.index)
-    console.log(this.blog);
+    this.blogData=this.sv.getBlogForId(this.index)
+    console.log(this.blogData);
     
   }
 }
