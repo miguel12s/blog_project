@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoleculesModule } from '../molecules/molecules.module';
 import { IconUpdateComponent } from './components/icon-update/icon-update.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ContainerBlogComponent } from './components/container-blog/container-blog.component';
+import { BlogRoutingModule } from './blog-routing.module';
 
 
 
@@ -21,10 +23,11 @@ import { FilterPipe } from './pipes/filter.pipe';
     VisualizarComponent,
     FilterdatePipe,
     IconUpdateComponent,
-    FilterPipe
+    FilterPipe,
+    ContainerBlogComponent
   ],
   imports: [
-    CommonModule,ReactiveFormsModule,MoleculesModule,FormsModule
+    CommonModule,ReactiveFormsModule,MoleculesModule,FormsModule,BlogRoutingModule
   ],
   exports:[
     BlogComponent,

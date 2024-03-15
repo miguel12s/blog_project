@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 
 interface Month{
@@ -24,16 +25,20 @@ export class FilterdatePipe implements PipeTransform {
   12: 'diciembre'
   };
   
-  transform(date: string, ...args: unknown[]): string {
+  transform(date: string|undefined ): string {
     console.log(date);
-    const numbersOfTheDate=date.toString().split('-')
-    console.log(numbersOfTheDate);
     
-    const textDate= `${numbersOfTheDate[2]} de ${this.getMonth(numbersOfTheDate[1])} de ${numbersOfTheDate[0]}`
+    const numbersOfTheDate=date?.split('-') 
+   console.log(numbersOfTheDate?[0][0]:'');
+console.log(numbersOfTheDate?[0]:'',numbersOfTheDate?[1]:'',numbersOfTheDate?[2]:'');
+
+    const textDate= `${numbersOfTheDate?[2]:null} de ${this.getMonth(numbersOfTheDate?[1].toString():'')} de
+     ${numbersOfTheDate?[0]:''}`
+     
     return textDate
     
    }
-   private getMonth(month:string):string{
+   private getMonth(month:string|undefined):string{
     const index=Number(month)
     return this.months[index]
    }

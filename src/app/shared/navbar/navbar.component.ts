@@ -5,7 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent {  
   @Output() wordSearch:EventEmitter<string> =new EventEmitter<string>
 
   @Output() ocultarComponente: EventEmitter<boolean> = new EventEmitter()
@@ -16,7 +16,6 @@ export class NavbarComponent {
 
 
   }
-
   onChange(event: any) {
     const palabra=event.target.value
     this.wordSearch.emit(palabra)

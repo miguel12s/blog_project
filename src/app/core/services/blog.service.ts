@@ -36,24 +36,20 @@ export class BlogService {
       date: '2023-03-27',
     },
   ];
-  constructor() {}
+  constructor() { }
 
   get blog() {
     return this.blogs;
   }
 
-  showComponentsApp(): boolean {
-    return true;
-  }
   crearBlog(blog: Blog) {
     blog.id = this.blogs.length + 1;
     this.blogs.push(blog);
   }
-  actualizarBlog(blog: Blog, id: number | undefined) {
-    console.log(blog);
+  actualizarBlog(blog: Blog, id: number) {
+    console.log(blog, id);
 
     const index = this.blogs.findIndex((blog) => blog.id == id);
-    console.log(index);
 
     if (index != -1) {
       blog.id = id;
@@ -63,5 +59,15 @@ export class BlogService {
     } else {
       console.log('blog no encontrado');
     }
+
+
   }
+
+  getBlogForId(id: number) {
+    console.log(id);
+    
+      const newblog = this.blogs.find(blog =>blog.id == id)
+  
+    return newblog
+}
 }

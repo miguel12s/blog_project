@@ -1,10 +1,7 @@
 <div class="container-fluid px-5">
 <div class="row mb-4">
-    <div *ngFor="let blog of blogs |filter:word">
-    <app-blog  (notification)="notificationf($event)" (updateBlog)="updateBlog($event)" [blog]="blog" class="col-12" ></app-blog>
-    <div *ngIf="blog.title===''">
-        
-        no existen entradas asociada a dicha busqueda</div>
+    <div *ngFor="let blog of blogs">
+    <app-blog   [blog]="blog" class="col-12" ></app-blog>
 </div>
 </div>
 </div>

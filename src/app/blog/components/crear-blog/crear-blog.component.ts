@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../../core/services/blog.service';
 import { Blog } from '../../../core/interfaces/blog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Blog } from '../../../core/interfaces/blog';
 })
 export class CrearBlogComponent {
 public fb=inject(FormBuilder)
+public router=inject(Router)
 crearBlog!:FormGroup
 @Output() crear:EventEmitter<any>=new EventEmitter()
 constructor(private service:BlogService){
@@ -20,7 +22,7 @@ constructor(private service:BlogService){
 initForm():FormGroup{
   return this.fb.group(
     {
-      title: new FormControl('',Validators.required),
+      title: new FormControl('',[Validators.required,Validators.minLength(5)]),
       description:new FormControl('',Validators.required),
       author:new FormControl('',Validators.required),
       date:new FormControl('',Validators.required),
@@ -33,7 +35,7 @@ const blog:Blog=this.crearBlog.value
 console.log(blog.date);
 
 this.service.crearBlog(blog)
-this.crear.emit("list")
+this.router.navigate(['blog'])
 }
 
 }

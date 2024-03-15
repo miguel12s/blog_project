@@ -8,7 +8,7 @@ import { Blog } from './core/interfaces/blog';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public blogs:Blog[]=[]
   showComponent:string="list"
   public blog!:Blog
@@ -17,12 +17,6 @@ public blogd!: Blog;
 word=""
 
 
-  constructor(private blogservice:BlogService){}
-  ngOnInit(): void {
-    
-    this.blogs=this.blogservice.blog
-    
-  }
   wordSearch(word: string) {
     console.log(word);
     

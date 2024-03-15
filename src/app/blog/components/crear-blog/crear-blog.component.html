@@ -7,6 +7,7 @@
         [placeholder]="'Titulo de entrada'"
         [control]="crearBlog.controls['title']"
       />
+      <app-alert *ngIf="this.crearBlog.get('title')?.errors?.['required']" [message]="'El titulo de la entrada no puede estar vacio'" [type]="'success'"></app-alert>
     </div>
     <div class="mb-3">
       <app-input

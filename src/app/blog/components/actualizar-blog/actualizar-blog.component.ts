@@ -1,27 +1,33 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../../core/services/blog.service';
 import { Blog } from '../../../core/interfaces/blog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar-blog',
   templateUrl: './actualizar-blog.component.html',
   styleUrl: './actualizar-blog.component.css'
 })
-export class ActualizarBlogComponent implements OnChanges {
+export class ActualizarBlogComponent implements OnInit {
   crearBlog!: FormGroup
   @Input() blog!: Blog
   @Output() update: EventEmitter<Blog> = new EventEmitter()
-  constructor(private service: BlogService, private fb: FormBuilder) {
+  private index!:number
+  private readonly routerSna=inject(ActivatedRoute)
+
+  constructor(private service: BlogService, private fb: FormBuilder,private router:Router) {
     this.crearBlog = this.initForm()
   }
-
-  ngOnChanges(): void {
-    this.crearBlog.patchValue({
-      title: this.blog.title,
-      description: this.blog.description,
-      author: this.blog.author,
-    })
+  ngOnInit(): void {
+  this.index=this.routerSna.snapshot.params['id']
+  const blogf=this.service.getBlogForId(this.index)
+  this.crearBlog.patchValue({
+    title: blogf?.title,
+    description: blogf?.description,
+    author: blogf?.author,
+  })
+    
   }
 
   initForm(): FormGroup {
@@ -38,8 +44,11 @@ export class ActualizarBlogComponent implements OnChanges {
   }
   onSubmit() {
     const blogcreate: Blog = this.crearBlog.value
-    this.service.actualizarBlog(blogcreate, this.blog.id)
-    this.update.emit()
+    console.log(this.blog);
+    
+    this.service.actualizarBlog(blogcreate, this.index)
+    this.router.navigate(['/blog/list'])
+
 
   }
 

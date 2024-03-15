@@ -1,6 +1,6 @@
 
 
-<div class="position-relative" (click)="onClick(blog)" >
+<div class="position-relative" [routerLink]="['/blog/visualizar/',blog.id]" (click)="onClick(blog)" >
   <div class="card mt-4">
     <div class="container card-body">
       <h5 class="card-title">{{ blog.title | titlecase }}</h5>
@@ -12,11 +12,11 @@
         <div class="flex-grow-1" style="width: 170px;">
 
 
-          <p class="text-secondary " style="font-size: 15px;" *ngIf="blog.date>dateToday">{{ blog.date | filterdate}}</p>
+          <p class="text-secondary " style="font-size: 15px;" *ngIf="blog.date<dateToday">{{ blog.date }}</p>
         </div>
       </div>
       <div class="position-absolute opciones">
-        <app-icon-update [blog]="blog" (update)="update($event)" ></app-icon-update>
+        <app-icon-update [blog]="blog" (update)="update($event)" [routerLink]="['/blog/updateList',blog.id]" ></app-icon-update>
       </div>
     </div>
   </div>
