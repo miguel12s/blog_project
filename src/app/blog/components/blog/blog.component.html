@@ -9,11 +9,10 @@
         <div class="w-100 ">
           <p class="text-secondary">Author: {{ blog.author }}</p>
         </div>
-        <div class="flex-grow-1" style="width: 170px;">
+        <div class="flex-grow-1" style="width: 200px;">
+        <p class="text-secondary "   *ngIf="blog.date<dateToday">{{ blog.date|filterdate }}</p>
+      </div>
 
-
-          <p class="text-secondary " style="font-size: 15px;" *ngIf="blog.date<dateToday">{{ blog.date }}</p>
-        </div>
       </div>
       <div class="position-absolute opciones">
         <app-icon-update [blog]="blog" (update)="update($event)" [routerLink]="['/blog/updateList',blog.id]" ></app-icon-update>

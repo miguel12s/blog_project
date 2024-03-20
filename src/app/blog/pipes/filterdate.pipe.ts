@@ -25,17 +25,20 @@ export class FilterdatePipe implements PipeTransform {
   12: 'diciembre'
   };
   
-  transform(date: string|undefined ): string {
+    transform(date: string|undefined ): string|undefined {
     console.log(date);
     
     const numbersOfTheDate=date?.split('-') 
+      
+      if(numbersOfTheDate){
+        const textDate = `${numbersOfTheDate[2].toString()} de ${this.getMonth(numbersOfTheDate[1].toString())} de ${numbersOfTheDate[0]}`;
+        return textDate
+      }
 
-   console.log(numbersOfTheDate?[0]:'')
+      return date
 
-    const textDate= `${numbersOfTheDate?[2]:''} de ${this.getMonth(numbersOfTheDate?[1].toString():'')} de
-     ${numbersOfTheDate?[0]:''}`
+
      
-    return textDate
     
    }
    private getMonth(month:string|undefined):string{

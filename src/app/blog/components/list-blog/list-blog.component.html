@@ -1,7 +1,12 @@
 <div class="container-fluid px-5">
-<div class="row mb-4">
-    <div *ngFor="let blog of blogs">
+<div class="row mb-4"> 
+    <div *ngIf="word=='' || word!==''">
+
+    <div *ngFor="let blog of blogs|filter:word">
     <app-blog   [blog]="blog" class="col-12" ></app-blog>
+    
 </div>
 </div>
 </div>
+</div>
+

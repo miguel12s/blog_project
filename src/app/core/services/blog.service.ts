@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class BlogService {
+  public $search=new BehaviorSubject<string>('')
   private blogs: Blog[] = [
     {
       id: 1,
@@ -42,6 +43,10 @@ export class BlogService {
     return this.blogs;
   }
 
+  get searchObservable(){
+    return this.$search.asObservable()
+  }
+
   crearBlog(blog: Blog) {
     blog.id = this.blogs.length + 1;
     this.blogs.push(blog);
@@ -69,5 +74,12 @@ export class BlogService {
       const newblog = this.blogs.find(blog =>blog.id == id)
   
     return newblog
+}
+
+getBlogsForSearch(search:string){
+  this.$search.next(search)
+  console.log(search);
+  
+
 }
 }

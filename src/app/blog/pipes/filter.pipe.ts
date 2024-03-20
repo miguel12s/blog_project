@@ -6,9 +6,10 @@ import { Blog } from '../../core/interfaces/blog';
 })
 export class FilterPipe implements PipeTransform {
   transform(blogs: Blog[],word:string): Blog[] {  
-
+    console.log(word);
+    
     console.log(word)
-    if(word!==""){
+    if(word !=''){
         const user:Blog[]=blogs.filter(
           (blog:Blog)=>
             
@@ -17,8 +18,9 @@ export class FilterPipe implements PipeTransform {
         )
         console.log(user);
         return user
-       }
+       }else{
         return blogs
+       }
        
     
     
