@@ -23,9 +23,9 @@ initForm():FormGroup{
   return this.fb.group(
     {
       title: new FormControl('',[Validators.required,Validators.minLength(5)]),
-      description:new FormControl('',Validators.required),
-      author:new FormControl('',Validators.required),
-      date:new FormControl('',Validators.required),
+      description:new FormControl('',[Validators.required,Validators.minLength(20)]),
+      author:new FormControl('',[Validators.required,Validators.minLength(10)]),
+      date:new FormControl('',[Validators.required]),
 
     }
   )
